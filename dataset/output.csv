@@ -1,111 +1,111 @@
 message_id,action,message_type,reason,confidence,evidence_message_ids
-msg_023,,,,,
-msg_091,,,,,
-msg_090,,,,,
-msg_048,,,,,
-msg_040,,,,,
-msg_075,,,,,
-msg_005,,,,,
-msg_104,,,,,
-msg_069,,,,,
-msg_107,,,,,
-msg_070,,,,,
-msg_003,,,,,
-msg_099,,,,,
-msg_008,,,,,
-msg_092,,,,,
-msg_060,,,,,
-msg_004,,,,,
-msg_030,,,,,
-msg_045,,,,,
-msg_052,,,,,
-msg_009,,,,,
-msg_071,,,,,
-msg_016,,,,,
-msg_065,,,,,
-msg_038,,,,,
-msg_086,,,,,
-msg_014,,,,,
-msg_094,,,,,
-msg_029,,,,,
-msg_105,,,,,
-msg_002,,,,,
-msg_010,,,,,
-msg_078,,,,,
-msg_013,,,,,
-msg_018,,,,,
-msg_044,,,,,
-msg_032,,,,,
-msg_106,,,,,
-msg_006,,,,,
-msg_109,,,,,
-msg_108,,,,,
-msg_019,,,,,
-msg_088,,,,,
-msg_056,,,,,
-msg_027,,,,,
-msg_050,,,,,
-msg_083,,,,,
-msg_063,,,,,
-msg_033,,,,,
-msg_061,,,,,
-msg_020,,,,,
-msg_017,,,,,
-msg_058,,,,,
-msg_026,,,,,
-msg_047,,,,,
-msg_046,,,,,
-msg_042,,,,,
-msg_079,,,,,
-msg_098,,,,,
-msg_037,,,,,
-msg_007,,,,,
-msg_085,,,,,
-msg_001,,,,,
-msg_021,,,,,
-msg_028,,,,,
-msg_012,,,,,
-msg_064,,,,,
-msg_103,,,,,
-msg_031,,,,,
-msg_057,,,,,
-msg_087,,,,,
-msg_067,,,,,
-msg_039,,,,,
-msg_082,,,,,
-msg_066,,,,,
-msg_049,,,,,
-msg_015,,,,,
-msg_051,,,,,
-msg_097,,,,,
-msg_089,,,,,
-msg_053,,,,,
-msg_059,,,,,
-msg_024,,,,,
-msg_072,,,,,
-msg_036,,,,,
-msg_076,,,,,
-msg_055,,,,,
-msg_102,,,,,
-msg_080,,,,,
-msg_093,,,,,
-msg_034,,,,,
-msg_035,,,,,
-msg_101,,,,,
-msg_041,,,,,
-msg_011,,,,,
-msg_110,,,,,
-msg_095,,,,,
-msg_074,,,,,
-msg_073,,,,,
-msg_054,,,,,
-msg_068,,,,,
-msg_100,,,,,
-msg_062,,,,,
-msg_096,,,,,
-msg_043,,,,,
-msg_077,,,,,
-msg_081,,,,,
-msg_025,,,,,
-msg_084,,,,,
-msg_022,,,,,
+msg_023,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0243;message_0244
+msg_091,digest,business_update,Standard notification batched into daily digest.,0.52,message_0238;message_0380
+msg_090,digest,business_update,Standard notification batched into daily digest.,0.65,message_0339;message_0340
+msg_048,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.22,message_0270;message_0410
+msg_040,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0366;message_0367
+msg_075,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.22,message_0376;message_0377
+msg_005,digest,business_update,Standard notification batched into daily digest.,0.36,message_0390;message_0401
+msg_104,digest,business_update,Standard notification batched into daily digest.,0.45,message_0115;message_0336
+msg_069,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0246;message_0394
+msg_107,mute,scam,Security pattern blocked: message text contains instructions intended for system override.,0.99,message_0369;message_0412
+msg_070,notify,payment,High-priority financial or authentication trigger.,0.95,message_0369;message_0412
+msg_003,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.22,message_0400;message_0031
+msg_099,digest,business_update,Standard notification batched into daily digest.,0.62,message_0362;message_0363
+msg_008,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.04,message_0296;message_0297
+msg_092,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.35,message_0346;message_0384
+msg_060,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.33,message_0284;message_0375
+msg_004,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0246;message_0245
+msg_030,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0115;message_0336
+msg_045,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.22,message_0371;message_0400
+msg_052,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.17,message_0375;message_0404
+msg_009,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0261;message_0262
+msg_071,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.34,message_0273;message_0274
+msg_016,mute,scam,Suspicious or unverified domain found in message link: account-login.in,0.98,message_0407;message_0411
+msg_065,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0260;message_0261
+msg_038,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0343;message_0408
+msg_086,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0362;message_0363
+msg_014,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.2,message_0258;message_0018
+msg_094,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.13,message_0388
+msg_029,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.01,message_0390;message_0401
+msg_105,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.28,message_0393;message_0409
+msg_002,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.22,message_0371;message_0400
+msg_010,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0011;message_0242
+msg_078,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0388
+msg_013,digest,business_update,Standard notification batched into daily digest.,0.35,message_0343;message_0408
+msg_018,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0243;message_0244
+msg_044,notify,payment,High-priority financial or authentication trigger.,0.95,message_0362;message_0363
+msg_032,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.33,message_0375;message_0404
+msg_106,digest,business_update,Standard notification batched into daily digest.,0.52,message_0376;message_0377
+msg_006,digest,promotion,Standard notification batched into daily digest.,0.38,message_0270;message_0410
+msg_109,mute,scam,Security pattern blocked: message text contains instructions intended for system override.,0.99,message_0270;message_0410
+msg_108,mute,scam,Suspicious or unverified domain found in message link: chase-secure-alert.com,0.98,message_0275;message_0276
+msg_019,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.34,message_0277;message_0275
+msg_088,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.15,message_0115;message_0336
+msg_056,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0359;message_0360
+msg_027,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.34,message_0272;message_0033
+msg_050,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.33,message_0279;message_0278
+msg_083,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.29,message_0323;message_0324
+msg_063,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0364;message_0403
+msg_033,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0393;message_0409
+msg_061,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0246;message_0394
+msg_020,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0390;message_0401
+msg_017,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.17,message_0318;message_0319
+msg_058,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0359;message_0360
+msg_026,mute,scam,Suspicious or unverified domain found in message link: amazonpay-delivery.in,0.98,message_0032;message_0261
+msg_047,digest,business_update,Standard notification batched into daily digest.,0.38,message_0270;message_0410
+msg_046,notify,payment,High-priority financial or authentication trigger.,0.95,message_0407;message_0411
+msg_042,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0359;message_0360
+msg_079,notify,payment,High-priority financial or authentication trigger.,0.95,message_0369;message_0412
+msg_098,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0359;message_0360
+msg_037,digest,business_update,Standard notification batched into daily digest.,0.38,message_0270;message_0410
+msg_007,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.34,message_0275;message_0276
+msg_085,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.21,message_0369;message_0412
+msg_001,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0359;message_0360
+msg_021,notify,payment,High-priority financial or authentication trigger.,0.95,message_0270;message_0410
+msg_028,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.2,message_0034;message_0366
+msg_012,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0246;message_0394
+msg_064,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.16,message_0407;message_0411
+msg_103,digest,business_update,Standard notification batched into daily digest.,0.66,message_0390;message_0401
+msg_031,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0362;message_0363
+msg_057,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.22,message_0371;message_0400
+msg_087,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.13,message_0391;message_0388
+msg_067,notify,payment,High-priority financial or authentication trigger.,0.95,message_0270;message_0410
+msg_039,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0364;message_0403
+msg_082,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.22,message_0380;message_0397
+msg_066,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.0,message_0257;message_0402
+msg_049,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.33,message_0291;message_0292
+msg_015,notify,payment,High-priority financial or authentication trigger.,0.95,message_0369;message_0412
+msg_051,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.0,message_0257;message_0402
+msg_097,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0359;message_0360
+msg_089,digest,business_update,Standard notification batched into daily digest.,0.66,message_0392;message_0396
+msg_053,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0407;message_0411
+msg_059,digest,business_update,Standard notification batched into daily digest.,0.41,message_0369;message_0412
+msg_024,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.0,message_0257;message_0402
+msg_072,mute,scam,Suspicious or unverified domain found in message link: account-help.in,0.98,message_0369;message_0412
+msg_036,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.17,message_0283;message_0281
+msg_076,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.17,message_0375;message_0404
+msg_055,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0387;message_0398
+msg_102,digest,business_update,Standard notification batched into daily digest.,0.52,message_0371;message_0400
+msg_080,digest,business_update,Standard notification batched into daily digest.,0.38,message_0270;message_0410
+msg_093,notify,payment,High-priority financial or authentication trigger.,0.95,message_0387;message_0398
+msg_034,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0359;message_0360
+msg_035,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.33,message_0281;message_0282
+msg_101,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0371;message_0400
+msg_041,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0359;message_0360
+msg_011,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0359;message_0360
+msg_110,mute,scam,Security pattern blocked: message text contains instructions intended for system override.,0.99,message_0380;message_0397
+msg_095,mute,scam,Suspicious or unverified domain found in message link: pay-check-secure.com,0.98,message_0407;message_0411
+msg_074,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0388
+msg_073,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0407;message_0411
+msg_054,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.13,message_0388
+msg_068,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.33,message_0288;message_0289
+msg_100,digest,business_update,Standard notification batched into daily digest.,0.62,message_0362;message_0363
+msg_062,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0270;message_0410
+msg_096,digest,business_update,Standard notification batched into daily digest.,0.56,message_0355;message_0405
+msg_043,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.03,message_0270;message_0410
+msg_077,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.12,message_0364;message_0403
+msg_081,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0359;message_0360
+msg_025,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0239;message_0004
+msg_084,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.13,message_0391;message_0388
+msg_022,notify,payment,High-priority financial or authentication trigger.,0.95,message_0270;message_0410
