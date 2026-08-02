@@ -25,6 +25,12 @@ def retry_api(max_retries=3, delay=1.0, backoff=2.0):
                 try:
                     return func(*args, **kwargs)
                 except Exception as e:
+                    err_str = str(e).lower()
+                    # Fail fast on quota / rate limit errors so fallback executes instantly
+                    if "429" in err_str or "quota" in err_str or "resourceexhausted" in err_str:
+                        logger.warning(f"API Quota/Rate Limit exceeded in {func.__name__}: {e}. Triggering immediate fallback.")
+                        raise e
+
                     if attempt == max_retries - 1:
                         logger.error(f"Failed to execute {func.__name__} after {max_retries} attempts: {e}")
                         raise e

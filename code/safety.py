@@ -1,89 +1,100 @@
 import os
-import google.generativeai as genai
-from utils import get_logger, extract_domains, retry_api
-from config import MAX_BIZ_REPORTS
+from schemas import UnifiedContext, AgentVote, NotificationLevel
+from utils import get_logger, extract_domains
+from config import (
+    MAX_BIZ_REPORTS,
+    SCAM_KEYWORDS,
+    TRUSTED_DOMAINS,
+    PROMPT_INJECTION_PATTERNS,
+    SENSITIVE_ACTION_KEYWORDS
+)
 
 logger = get_logger("SafetyEngine")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
 class SafetyEngine:
+    """Security engine checking phishing domains, prompt injection, typosquatting, and scam keywords."""
     def __init__(self):
-        # Local keyword checklist for fallback/sanity checks
-        self.scam_keywords = ["lottery", "claim prize", "wire money", "kyc update urgent", "bank account suspended", "crypto bonus", "account-login.in", "chase-secure-alert.com"]
-        # Explicit domains we know are trusted
-        self.trusted_domains = ["amazon.com", "amazon.in", "fedex.com", "razorpay.com", "pvr", "chase.com", "shopee"]
+        self.scam_keywords = SCAM_KEYWORDS
+        self.trusted_domains = TRUSTED_DOMAINS
+        self.prompt_injection_patterns = PROMPT_INJECTION_PATTERNS
+        self.sensitive_keywords = SENSITIVE_ACTION_KEYWORDS
 
-    def evaluate(self, context):
-        msg = context["message"]
-        msg_text = str(msg.get("message_text", "") or "")
-        media_text = str(context.get("media_text", "") or "")
-        full_text = f"{msg_text} {media_text}".strip()
+    def evaluate_vote(self, context: UnifiedContext) -> AgentVote:
+        """Evaluates safety guardrails and casts a Safety Agent Vote directly with override capability."""
+        unified_text = context.unified_text.lower()
+        user_prof = context.user_stats
+        grp_ctx = context.group_context
+        biz_ctx = context.business_context
 
-        user_prof = context.get("user_profile") or {}
-        grp_ctx = context.get("group_context") or {}
-        biz_ctx = context.get("business_context") or {}
+        # 1. Prompt Injection / Instruction Override Attack Guardrail
+        for pattern in self.prompt_injection_patterns:
+            if pattern in unified_text:
+                return AgentVote(
+                    agent_name="SafetyScamAgent",
+                    vote=NotificationLevel.SILENT_ARCHIVE,
+                    confidence=0.99,
+                    evidence=f"Security attack blocked: prompt injection pattern '{pattern}' detected.",
+                    signals={"safety_override": True, "threat_type": "prompt_injection"}
+                )
 
-        # 1. Phishing Domain Extraction & Verification
-        extracted_domains = extract_domains(full_text)
+        # 2. Phishing Domain Extraction & Verification
+        extracted_domains = extract_domains(context.unified_text)
         for domain in extracted_domains:
-            # Check if domain looks suspicious and is not in trusted_domains
             is_trusted = any(td in domain for td in self.trusted_domains)
             if not is_trusted:
-                logger.info(f"Unsafe/suspicious domain detected: {domain}")
-                return {
-                    "action": "mute",
-                    "message_type": "scam",
-                    "reason": f"Suspicious or unverified domain found in message link: {domain}",
-                    "confidence": 0.98
-                }
+                return AgentVote(
+                    agent_name="SafetyScamAgent",
+                    vote=NotificationLevel.SILENT_ARCHIVE,
+                    confidence=0.98,
+                    evidence=f"Phishing guardrail triggered: suspicious unverified domain '{domain}' found in link.",
+                    signals={"safety_override": True, "threat_type": "phishing_domain", "domain": domain}
+                )
 
-        # 2. Instruction Override / Jailbreak Guardrail Check
-        lower_full_text = full_text.lower()
-        if "routing override" in lower_full_text or "ignore sender risk" in lower_full_text or "always mark this" in lower_full_text or "system note for" in lower_full_text or "assistant instruction:" in lower_full_text:
-            logger.info("Jailbreak / system instruction override attempt blocked.")
-            return {
-                "action": "mute",
-                "message_type": "scam",
-                "reason": "Security pattern blocked: message text contains instructions intended for system override.",
-                "confidence": 0.99
-            }
-
-        # 3. Unverified Senders / Phishing Risk Check
-        biz_info = biz_ctx.get("info") or {}
+        # 3. Unverified Business requesting sensitive credentials
+        biz_info = (biz_ctx.get("info") if biz_ctx else {}) or {}
         if biz_info:
             reports = biz_info.get("reports_count", 0)
             is_verified = biz_info.get("is_verified", True)
-            if reports > MAX_BIZ_REPORTS or not is_verified:
-                if any(kw in lower_full_text for kw in ["payment", "verify", "link", "login", "bank", "otp", "code"]):
-                    return {
-                        "action": "mute",
-                        "message_type": "scam",
-                        "reason": "Unverified or highly reported business account requesting sensitive authentication/payment actions.",
-                        "confidence": 0.98
-                    }
+            if reports >= MAX_BIZ_REPORTS or not is_verified:
+                if any(kw in unified_text for kw in self.sensitive_keywords):
+                    return AgentVote(
+                        agent_name="SafetyScamAgent",
+                        vote=NotificationLevel.SILENT_ARCHIVE,
+                        confidence=0.98,
+                        evidence="Unverified business requesting sensitive authentication/payment credentials.",
+                        signals={"safety_override": True, "threat_type": "fake_otp"}
+                    )
 
-        # 4. Local Scam Keyword Check (Fallback)
+        # 4. Static Scam Keyword Guardrails
         for kw in self.scam_keywords:
-            if kw in lower_full_text:
-                return {
-                    "action": "mute",
-                    "message_type": "scam",
-                    "reason": f"Suspicious security pattern detected matching static guardrails ('{kw}').",
-                    "confidence": 0.98
-                }
+            if kw in unified_text:
+                return AgentVote(
+                    agent_name="SafetyScamAgent",
+                    vote=NotificationLevel.SILENT_ARCHIVE,
+                    confidence=0.98,
+                    evidence=f"Security guardrail triggered: text matches scam phrase ('{kw}').",
+                    signals={"safety_override": True, "threat_type": "scam_keyword", "keyword": kw}
+                )
 
-        # 5. Muted Group Logic with Direct Mention Override
+        # 5. Muted Group Rule with Direct Mention Override
         if grp_ctx and grp_ctx.get("membership", {}).get("is_muted"):
             username = str(user_prof.get("username", "") or "").lower()
-            # If user is directly mentioned, override mute rule
-            if username and f"@{username}" in lower_full_text:
-                return None  # Pass to priority router
-            
-            return {
-                "action": "mute",
-                "message_type": "personal" if msg.get("conversation_type") == "group" else "unknown",
-                "reason": "Group is muted by user preferences and contains no direct mention.",
-                "confidence": 0.95
-            }
+            if username and f"@{username}" in unified_text:
+                logger.info(f"Direct mention override for muted group member: @{username}")
+            else:
+                grp_name = grp_ctx.get("info", {}).get("group_name", "group chat")
+                return AgentVote(
+                    agent_name="SafetyScamAgent",
+                    vote=NotificationLevel.MUTE,
+                    confidence=0.95,
+                    evidence=f"{grp_name} is muted by user preferences and contains no direct mention.",
+                    signals={"safety_override": True, "threat_type": "muted_group"}
+                )
 
-        return None
+        return AgentVote(
+            agent_name="SafetyScamAgent",
+            vote=NotificationLevel.NORMAL_NOTIFY,
+            confidence=0.95,
+            evidence="Safety check passed: no security threats detected.",
+            signals={"safety_override": False, "threat_type": "none"}
+        )

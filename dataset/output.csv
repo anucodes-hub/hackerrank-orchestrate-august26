@@ -1,111 +1,111 @@
 message_id,action,message_type,reason,confidence,evidence_message_ids
-msg_023,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0243;message_0244
-msg_091,digest,business_update,Standard notification batched into daily digest.,0.52,message_0238;message_0380
-msg_090,digest,business_update,Standard notification batched into daily digest.,0.65,message_0339;message_0340
-msg_048,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.22,message_0270;message_0410
-msg_040,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0366;message_0367
-msg_075,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.22,message_0376;message_0377
-msg_005,digest,business_update,Standard notification batched into daily digest.,0.36,message_0390;message_0401
-msg_104,digest,business_update,Standard notification batched into daily digest.,0.45,message_0115;message_0336
-msg_069,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0246;message_0394
-msg_107,mute,scam,Security pattern blocked: message text contains instructions intended for system override.,0.99,message_0369;message_0412
-msg_070,notify,payment,High-priority financial or authentication trigger.,0.95,message_0369;message_0412
-msg_003,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.22,message_0400;message_0031
-msg_099,digest,business_update,Standard notification batched into daily digest.,0.62,message_0362;message_0363
-msg_008,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.04,message_0296;message_0297
-msg_092,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.35,message_0346;message_0384
-msg_060,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.33,message_0284;message_0375
-msg_004,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0246;message_0245
-msg_030,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0115;message_0336
-msg_045,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.22,message_0371;message_0400
-msg_052,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.17,message_0375;message_0404
-msg_009,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0261;message_0262
-msg_071,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.34,message_0273;message_0274
-msg_016,mute,scam,Suspicious or unverified domain found in message link: account-login.in,0.98,message_0407;message_0411
-msg_065,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0260;message_0261
-msg_038,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0343;message_0408
-msg_086,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0362;message_0363
-msg_014,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.2,message_0258;message_0018
-msg_094,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.13,message_0388
-msg_029,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.01,message_0390;message_0401
-msg_105,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.28,message_0393;message_0409
-msg_002,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.22,message_0371;message_0400
-msg_010,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0011;message_0242
-msg_078,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0388
-msg_013,digest,business_update,Standard notification batched into daily digest.,0.35,message_0343;message_0408
-msg_018,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0243;message_0244
-msg_044,notify,payment,High-priority financial or authentication trigger.,0.95,message_0362;message_0363
-msg_032,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.33,message_0375;message_0404
-msg_106,digest,business_update,Standard notification batched into daily digest.,0.52,message_0376;message_0377
-msg_006,digest,promotion,Standard notification batched into daily digest.,0.38,message_0270;message_0410
-msg_109,mute,scam,Security pattern blocked: message text contains instructions intended for system override.,0.99,message_0270;message_0410
-msg_108,mute,scam,Suspicious or unverified domain found in message link: chase-secure-alert.com,0.98,message_0275;message_0276
-msg_019,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.34,message_0277;message_0275
-msg_088,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.15,message_0115;message_0336
-msg_056,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0359;message_0360
-msg_027,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.34,message_0272;message_0033
-msg_050,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.33,message_0279;message_0278
-msg_083,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.29,message_0323;message_0324
-msg_063,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0364;message_0403
-msg_033,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0393;message_0409
-msg_061,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0246;message_0394
-msg_020,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0390;message_0401
-msg_017,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.17,message_0318;message_0319
-msg_058,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0359;message_0360
-msg_026,mute,scam,Suspicious or unverified domain found in message link: amazonpay-delivery.in,0.98,message_0032;message_0261
-msg_047,digest,business_update,Standard notification batched into daily digest.,0.38,message_0270;message_0410
-msg_046,notify,payment,High-priority financial or authentication trigger.,0.95,message_0407;message_0411
-msg_042,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0359;message_0360
-msg_079,notify,payment,High-priority financial or authentication trigger.,0.95,message_0369;message_0412
-msg_098,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0359;message_0360
-msg_037,digest,business_update,Standard notification batched into daily digest.,0.38,message_0270;message_0410
-msg_007,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.34,message_0275;message_0276
-msg_085,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.21,message_0369;message_0412
-msg_001,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0359;message_0360
-msg_021,notify,payment,High-priority financial or authentication trigger.,0.95,message_0270;message_0410
-msg_028,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.2,message_0034;message_0366
-msg_012,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0246;message_0394
-msg_064,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.16,message_0407;message_0411
-msg_103,digest,business_update,Standard notification batched into daily digest.,0.66,message_0390;message_0401
-msg_031,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0362;message_0363
-msg_057,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.22,message_0371;message_0400
-msg_087,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.13,message_0391;message_0388
-msg_067,notify,payment,High-priority financial or authentication trigger.,0.95,message_0270;message_0410
-msg_039,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0364;message_0403
-msg_082,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.22,message_0380;message_0397
-msg_066,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.0,message_0257;message_0402
-msg_049,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.33,message_0291;message_0292
-msg_015,notify,payment,High-priority financial or authentication trigger.,0.95,message_0369;message_0412
-msg_051,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.0,message_0257;message_0402
-msg_097,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0359;message_0360
-msg_089,digest,business_update,Standard notification batched into daily digest.,0.66,message_0392;message_0396
-msg_053,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0407;message_0411
-msg_059,digest,business_update,Standard notification batched into daily digest.,0.41,message_0369;message_0412
-msg_024,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.0,message_0257;message_0402
-msg_072,mute,scam,Suspicious or unverified domain found in message link: account-help.in,0.98,message_0369;message_0412
-msg_036,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.17,message_0283;message_0281
-msg_076,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.17,message_0375;message_0404
-msg_055,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0387;message_0398
-msg_102,digest,business_update,Standard notification batched into daily digest.,0.52,message_0371;message_0400
-msg_080,digest,business_update,Standard notification batched into daily digest.,0.38,message_0270;message_0410
-msg_093,notify,payment,High-priority financial or authentication trigger.,0.95,message_0387;message_0398
-msg_034,notify,urgent,Time-sensitive keyword detected in text/media transcript.,0.92,message_0359;message_0360
-msg_035,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.33,message_0281;message_0282
-msg_101,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0371;message_0400
-msg_041,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0359;message_0360
-msg_011,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0359;message_0360
-msg_110,mute,scam,Security pattern blocked: message text contains instructions intended for system override.,0.99,message_0380;message_0397
-msg_095,mute,scam,Suspicious or unverified domain found in message link: pay-check-secure.com,0.98,message_0407;message_0411
-msg_074,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0388
-msg_073,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0407;message_0411
-msg_054,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.13,message_0388
-msg_068,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.33,message_0288;message_0289
-msg_100,digest,business_update,Standard notification batched into daily digest.,0.62,message_0362;message_0363
-msg_062,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.0,message_0270;message_0410
-msg_096,digest,business_update,Standard notification batched into daily digest.,0.56,message_0355;message_0405
-msg_043,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.03,message_0270;message_0410
-msg_077,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.12,message_0364;message_0403
-msg_081,mute,forward,Low priority score due to history of dismissals or high forwarding.,0.32,message_0359;message_0360
-msg_025,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.32,message_0239;message_0004
-msg_084,mute,promotion,Low priority score due to history of dismissals or high forwarding.,0.13,message_0391;message_0388
-msg_022,notify,payment,High-priority financial or authentication trigger.,0.95,message_0270;message_0410
+msg_023,digest,promotion,"Standard business update (msg_023) batched into daily digest by Business Trust Agent for user u_002. Matches past evidence (exact_text_match, sim: 0.95).",0.85,message_0243;message_0244
+msg_091,digest,personal,"Standard personal message (msg_091) regarding 'Your workspace access will expire t...' batched into daily digest for user u_028. Matches past evidence (exact_text_match, sim: 0.95).",0.81,message_0238;message_0380
+msg_090,notify,personal,"Direct personal message (msg_090) from priority contact for user u_034 (user reply rate 27%). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0339;message_0340
+msg_048,digest,greeting,"Group update (msg_048) from Society Maintenance Desk batched for user u_011's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0270;message_0410
+msg_040,mute,forward,"Message msg_040 regarding '@u_007 forward this to ten people f...' muted by Fatigue Agent for user u_007 (daily load: 112 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0366;message_0367
+msg_075,digest,promotion,"Standard business update (msg_075) batched into daily digest by Business Trust Agent for user u_019. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0376;message_0377
+msg_005,digest,greeting,"Group update (msg_005) from Myntra Marketplace batched for user u_032's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0390;message_0401
+msg_104,digest,personal,"Standard personal message (msg_104) regarding 'Hi, I kept the blue denim jacket as...' batched into daily digest for user u_033.",0.81,message_0115;message_0336
+msg_069,mute,forward,"Message msg_069 regarding 'Good morning sabko, bhagwan sabka b...' muted by Fatigue Agent for user u_003 (daily load: 79 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0246;message_0394
+msg_107,mute,scam,Security attack blocked: prompt injection pattern 'routing override' detected.,0.99,none
+msg_070,digest,greeting,"Group update (msg_070) from Myntra Marketplace batched for user u_009's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0369;message_0412
+msg_003,mute,promotion,"Message msg_003 regarding 'Hi Customer,  Your order ending 482...' muted by Fatigue Agent for user u_010 (daily load: 109 notifications). Matches past evidence (exact_text_match, sim: 0.95).",0.82,message_0400;message_0031
+msg_099,notify,personal,"Direct personal message (msg_099) from priority contact for user u_004 (user reply rate 25%). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0362;message_0363
+msg_008,digest,promotion,"Standard business update (msg_008) batched into daily digest by Business Trust Agent for user u_020. Matches past evidence (high_term_overlap, sim: 0.7).",0.85,message_0296;message_0297
+msg_092,digest,promotion,"Standard business update (msg_092) batched into daily digest by Business Trust Agent for user u_036. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0346;message_0384
+msg_060,digest,greeting,"Group update (msg_060) from University of Toronto Faculty Advising batched for user u_016's periodic review. Matches past evidence (high_term_overlap, sim: 0.63).",0.85,message_0284;message_0375
+msg_004,digest,promotion,"Standard business update (msg_004) batched into daily digest by Business Trust Agent for user u_003. Matches past evidence (exact_text_match, sim: 0.95).",0.85,message_0246;message_0245
+msg_030,mute,forward,Message msg_030 regarding 'Selling a barely used Myntra kurta...' muted by Fatigue Agent for user u_033 (daily load: 155 notifications).,0.83,message_0115;message_0336
+msg_045,digest,greeting,"Group update (msg_045) from Maple Heights Residents batched for user u_010's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0371;message_0400
+msg_052,digest,promotion,"Standard business update (msg_052) batched into daily digest by Business Trust Agent for user u_016. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0375;message_0404
+msg_009,digest,greeting,"Group update (msg_009) from Match Night Crew batched for user u_008's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0261;message_0262
+msg_071,digest,greeting,"Group update (msg_071) from Extended Family batched for user u_012's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0273;message_0274
+msg_016,mute,scam,Phishing guardrail triggered: suspicious unverified domain 'account-login.in' found in link.,0.98,none
+msg_065,digest,promotion,"Standard business update (msg_065) batched into daily digest by Business Trust Agent for user u_008. Matches past evidence (exact_text_match, sim: 0.95).",0.85,message_0260;message_0261
+msg_038,mute,forward,"Message msg_038 regarding 'URGENT share with everyone before m...' muted by Fatigue Agent for user u_035 (daily load: 136 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0343;message_0408
+msg_086,digest,promotion,"Standard business update (msg_086) batched into daily digest by Business Trust Agent for user u_004. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0362;message_0363
+msg_014,mute,promotion,"Message msg_014 regarding 'New here? 50% Off Won't Wait!  Welc...' muted by Fatigue Agent for user u_007 (daily load: 112 notifications). Matches past evidence (exact_text_match, sim: 0.95).",0.86,message_0258;message_0018
+msg_094,mute,promotion,"Message msg_094 regarding 'Dear Customer,  Welcome offer: get...' muted by Fatigue Agent for user u_040 (daily load: 153 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0388
+msg_029,mute,forward,"Message msg_029 regarding 'Selling a barely used Myntra kurta...' muted by Fatigue Agent for user u_032 (daily load: 98 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0390;message_0401
+msg_105,notify,forward,"Direct personal message (msg_105) from priority contact for user u_014 (user reply rate 26%). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0393;message_0409
+msg_002,digest,greeting,"Group update (msg_002) from Checkout Platform Co-workers batched for user u_010's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0371;message_0400
+msg_010,digest,promotion,"Standard business update (msg_010) batched into daily digest by Business Trust Agent for user u_002. Matches past evidence (exact_text_match, sim: 0.95).",0.85,message_0011;message_0242
+msg_078,mute,forward,"Message msg_078 regarding 'Open this document urgently, benefi...' muted by Fatigue Agent for user u_040 (daily load: 153 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0388
+msg_013,digest,greeting,"Group update (msg_013) from University of Toronto Faculty Advising batched for user u_035's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0343;message_0408
+msg_018,mute,forward,"Message msg_018 regarding 'Congrats, your number was selected...' muted by Fatigue Agent for user u_002 (daily load: 103 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0243;message_0244
+msg_044,digest,greeting,"Group update (msg_044) from Myntra Marketplace batched for user u_004's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0362;message_0363
+msg_032,digest,greeting,"Group update (msg_032) from University of Toronto Student Chat batched for user u_016's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0375;message_0404
+msg_106,notify,personal,"Direct personal message (msg_106) from priority contact for user u_019 (user reply rate 13%). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0376;message_0377
+msg_006,digest,greeting,"Group update (msg_006) from Green Acres Society Notices batched for user u_011's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0270;message_0410
+msg_109,mute,scam,Security attack blocked: prompt injection pattern 'system note for' detected.,0.99,none
+msg_108,mute,scam,Phishing guardrail triggered: suspicious unverified domain 'chase-secure-alert.com' found in link.,0.98,none
+msg_019,digest,promotion,"Standard business update (msg_019) batched into daily digest by Business Trust Agent for user u_013. Matches past evidence (exact_text_match, sim: 0.95).",0.85,message_0277;message_0275
+msg_088,mute,greeting,Message msg_088 regarding 'nan...' muted by Fatigue Agent for user u_033 (daily load: 155 notifications).,0.83,message_0115;message_0336
+msg_056,digest,greeting,"Group update (msg_056) from Mehra Family batched for user u_001's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0359;message_0360
+msg_027,digest,promotion,"Standard business update (msg_027) batched into daily digest by Business Trust Agent for user u_012. Matches past evidence (exact_text_match, sim: 0.95).",0.85,message_0272;message_0033
+msg_050,digest,promotion,"Standard business update (msg_050) batched into daily digest by Business Trust Agent for user u_014. Matches past evidence (exact_text_match, sim: 0.95).",0.85,message_0279;message_0278
+msg_083,digest,greeting,"Group update (msg_083) from Checkout Platform Co-workers batched for user u_029's periodic review. Matches past evidence (exact_text_match, sim: 0.95).",0.85,message_0323;message_0324
+msg_063,digest,greeting,"Group update (msg_063) from Local Food Finds batched for user u_006's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0364;message_0403
+msg_033,digest,greeting,"Group update (msg_033) from Cousins and Family Chat batched for user u_014's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0393;message_0409
+msg_061,mute,forward,"Message msg_061 regarding 'Good morning. Share this blessing w...' muted by Fatigue Agent for user u_003 (daily load: 79 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0246;message_0394
+msg_020,digest,greeting,"Group update (msg_020) from Myntra Marketplace batched for user u_032's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0390;message_0401
+msg_017,mute,greeting,"Message msg_017 regarding 'Scan and pay pending charge now. Se...' muted by Fatigue Agent for user u_027 (daily load: 112 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0318;message_0319
+msg_058,mute,forward,"Message msg_058 regarding 'Forwarded: read this long health se...' muted by Fatigue Agent for user u_001 (daily load: 61 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0359;message_0360
+msg_026,mute,scam,Phishing guardrail triggered: suspicious unverified domain 'amazonpay-delivery.in' found in link.,0.98,none
+msg_047,digest,greeting,"Group update (msg_047) from Society Maintenance Desk batched for user u_011's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0270;message_0410
+msg_046,digest,greeting,"Group update (msg_046) from Extended Family batched for user u_005's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0407;message_0411
+msg_042,digest,greeting,"Group update (msg_042) from Society Maintenance Desk batched for user u_001's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0359;message_0360
+msg_079,digest,greeting,"Group update (msg_079) from Myntra Marketplace batched for user u_009's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0369;message_0412
+msg_098,notify,urgent,"Time-sensitive operational update in msg_098 regarding 'Call me now if you can. The clinic...' flagged by Multimodal & Priority Agents. Matches past evidence (user_interaction_event, sim: 0.75). [Priority Agent requested notification, but Fatigue Agent flagged quiet hours/high load.]",0.82,message_0359;message_0360
+msg_037,digest,greeting,"Group update (msg_037) from Green Acres Society Notices batched for user u_011's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0270;message_0410
+msg_007,digest,greeting,"Group update (msg_007) from Maple Heights Residents batched for user u_013's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0275;message_0276
+msg_085,digest,promotion,"Standard business update (msg_085) batched into daily digest by Business Trust Agent for user u_009. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0369;message_0412
+msg_001,digest,greeting,"Group update (msg_001) from Green Acres Society Notices batched for user u_001's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0359;message_0360
+msg_021,digest,greeting,"Group update (msg_021) from Green Acres Society Notices batched for user u_011's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0270;message_0410
+msg_028,mute,promotion,"Message msg_028 regarding 'The mountains are calling again.  A...' muted by Fatigue Agent for user u_007 (daily load: 112 notifications). Matches past evidence (exact_text_match, sim: 0.95).",0.86,message_0034;message_0366
+msg_012,mute,forward,"Message msg_012 regarding 'Fwd as received: this one habit wil...' muted by Fatigue Agent for user u_003 (daily load: 79 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0246;message_0394
+msg_064,digest,greeting,"Group update (msg_064) from Myntra Marketplace batched for user u_005's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0407;message_0411
+msg_103,notify,personal,"Direct personal message (msg_103) from priority contact for user u_032 (user reply rate 24%). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0390;message_0401
+msg_031,digest,greeting,"Group update (msg_031) from Checkout Platform Co-workers batched for user u_004's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0362;message_0363
+msg_057,digest,greeting,"Group update (msg_057) from Checkout Platform Co-workers batched for user u_010's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0371;message_0400
+msg_087,mute,greeting,"Message msg_087 regarding 'nan...' muted by Fatigue Agent for user u_040 (daily load: 153 notifications). Matches past evidence (exact_text_match, sim: 0.95).",0.87,message_0391;message_0388
+msg_067,digest,greeting,"Group update (msg_067) from Green Acres Society Notices batched for user u_011's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0270;message_0410
+msg_039,digest,greeting,"Group update (msg_039) from International School Parents Group batched for user u_006's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0364;message_0403
+msg_082,digest,greeting,"Group update (msg_082) from Checkout Platform Co-workers batched for user u_028's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0380;message_0397
+msg_066,mute,promotion,"Message msg_066 regarding 'Reminder: your account has a shoppi...' muted by Fatigue Agent for user u_007 (daily load: 112 notifications). Matches past evidence (exact_text_match, sim: 0.95).",0.86,message_0257;message_0402
+msg_049,digest,promotion,"Standard business update (msg_049) batched into daily digest by Business Trust Agent for user u_018. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0291;message_0292
+msg_015,digest,greeting,"Group update (msg_015) from Myntra Marketplace batched for user u_009's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0369;message_0412
+msg_051,mute,promotion,"Message msg_051 regarding 'Reminder: your account has a shoppi...' muted by Fatigue Agent for user u_007 (daily load: 112 notifications). Matches past evidence (exact_text_match, sim: 0.95).",0.86,message_0257;message_0402
+msg_097,notify,urgent,"Time-sensitive operational update in msg_097 regarding 'Reached home and had dinner. Don't...' flagged by Multimodal & Priority Agents. Matches past evidence (user_interaction_event, sim: 0.75). [Priority Agent requested notification, but Fatigue Agent flagged quiet hours/high load.]",0.82,message_0359;message_0360
+msg_089,notify,personal,"Direct personal message (msg_089) from priority contact for user u_021 (user reply rate 21%). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0392;message_0396
+msg_053,mute,forward,"Message msg_053 regarding 'Market note: Nvidia and TSMC both o...' muted by Fatigue Agent for user u_005 (daily load: 90 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0407;message_0411
+msg_059,digest,greeting,"Group update (msg_059) from Myntra Marketplace batched for user u_009's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0369;message_0412
+msg_024,mute,promotion,"Message msg_024 regarding 'Reminder: your account has a shoppi...' muted by Fatigue Agent for user u_007 (daily load: 112 notifications). Matches past evidence (exact_text_match, sim: 0.95).",0.86,message_0257;message_0402
+msg_072,mute,scam,Phishing guardrail triggered: suspicious unverified domain 'account-help.in' found in link.,0.98,none
+msg_036,digest,promotion,"Standard business update (msg_036) batched into daily digest by Business Trust Agent for user u_015. Matches past evidence (exact_text_match, sim: 0.95).",0.85,message_0283;message_0281
+msg_076,digest,promotion,"Standard business update (msg_076) batched into daily digest by Business Trust Agent for user u_016. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0375;message_0404
+msg_055,digest,greeting,"Group update (msg_055) from Extended Family batched for user u_037's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0387;message_0398
+msg_102,notify,personal,"Direct personal message (msg_102) from priority contact for user u_010 (user reply rate 15%). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0371;message_0400
+msg_080,digest,greeting,"Group update (msg_080) from Green Acres Society Notices batched for user u_011's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0270;message_0410
+msg_093,digest,promotion,"Standard business update (msg_093) batched into daily digest by Business Trust Agent for user u_037. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0387;message_0398
+msg_034,mute,forward,"Message msg_034 regarding 'Good morning beta, have a good day....' muted by Fatigue Agent for user u_001 (daily load: 61 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0359;message_0360
+msg_035,digest,promotion,"Standard business update (msg_035) batched into daily digest by Business Trust Agent for user u_015. Matches past evidence (exact_text_match, sim: 0.95).",0.85,message_0281;message_0282
+msg_101,notify,personal,"Direct personal message (msg_101) from priority contact for user u_010 (user reply rate 15%). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0371;message_0400
+msg_041,digest,promotion,"Standard business update (msg_041) batched into daily digest by Business Trust Agent for user u_001. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0359;message_0360
+msg_011,mute,forward,"Message msg_011 regarding 'Good morning. Smile today, stay ble...' muted by Fatigue Agent for user u_001 (daily load: 61 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0359;message_0360
+msg_110,mute,scam,Security attack blocked: prompt injection pattern 'ignore sender risk' detected.,0.99,none
+msg_095,mute,scam,Security attack blocked: prompt injection pattern 'always mark this' detected.,0.99,none
+msg_074,mute,forward,"Message msg_074 regarding 'Final few plots near the airport ro...' muted by Fatigue Agent for user u_040 (daily load: 153 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0388
+msg_073,mute,forward,"Message msg_073 regarding 'Security check required today. Fail...' muted by Fatigue Agent for user u_005 (daily load: 90 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0407;message_0411
+msg_054,mute,greeting,"Message msg_054 regarding 'Loan approved. Pay processing fee a...' muted by Fatigue Agent for user u_040 (daily load: 153 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0388
+msg_068,digest,greeting,"Group update (msg_068) from Indiranagar Book Club batched for user u_017's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0288;message_0289
+msg_100,notify,personal,"Direct personal message (msg_100) from priority contact for user u_004 (user reply rate 25%). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0362;message_0363
+msg_062,mute,forward,"Low-urgency message msg_062 regarding 'Fire alarm test tomorrow 9 AM to 11...' muted during user u_011's quiet hours window. Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0270;message_0410
+msg_096,notify,personal,"Direct personal message (msg_096) from priority contact for user u_039 (user reply rate 18%). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0355;message_0405
+msg_043,mute,forward,"Message msg_043 regarding 'Fwd from admin desk: tanker reached...' muted by Fatigue Agent for user u_011 (daily load: 119 notifications). Matches past evidence (user_interaction_event, sim: 0.75).",0.82,message_0270;message_0410
+msg_077,digest,promotion,"Group update (msg_077) from International School Parents Group batched for user u_006's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0364;message_0403
+msg_081,digest,greeting,"Group update (msg_081) from International School Parents Group batched for user u_001's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0359;message_0360
+msg_025,digest,promotion,"Standard business update (msg_025) batched into daily digest by Business Trust Agent for user u_001. Matches past evidence (exact_text_match, sim: 0.95).",0.85,message_0239;message_0004
+msg_084,mute,promotion,"Message msg_084 regarding 'nan...' muted by Fatigue Agent for user u_040 (daily load: 153 notifications). Matches past evidence (exact_text_match, sim: 0.95).",0.86,message_0391;message_0388
+msg_022,digest,greeting,"Group update (msg_022) from Society Maintenance Desk batched for user u_011's periodic review. Matches past evidence (user_interaction_event, sim: 0.75).",0.81,message_0270;message_0410

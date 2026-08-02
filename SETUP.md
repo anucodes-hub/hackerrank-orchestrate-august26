@@ -1,112 +1,84 @@
-# WhatsApp Notification Router Setup & Running Guide
+# Setup & Execution Guide - Message Notification Router
 
-This guide describes how to set up, configure, and execute the WhatsApp Notification Router starting from a fresh environment.
+This document provides complete instructions for setting up the environment, installing dependencies, configuring environment variables, running tests, and executing the pipeline.
 
 ---
 
 ## 1. Prerequisites
-- **Python**: Version `3.10` or `3.11` (specifically tested on `3.10.11` and `3.11.x`).
-- **Package Manager**: `pip` (included by default with Python installer).
-- **Environment**: Terminal shell (Command Prompt / PowerShell for Windows; Bash / Zsh for macOS and Linux).
-- **Audio Decoding (Optional)**: `ffmpeg` (required by `pydub` only if processing raw audio files natively; otherwise, Gemini handles audio uploads directly).
+
+- Python 3.10 or higher
+- Terminal shell (PowerShell or Bash)
 
 ---
 
-## 2. Setting Up the Environment
+## 2. Environment Setup & Installation
 
-### Step 2.1: Clone the Repository
-Clone the repository and enter the directory:
-```bash
-git clone <repository_url>
-cd hackerrank-orchestrate-august26
-```
+1. Clone or navigate to the repository directory:
+   ```bash
+   cd hackerrank-orchestrate-august26
+   ```
 
-### Step 2.2: Create a Virtual Environment
-Choose the commands below based on your operating system:
+2. Copy the environment configuration template:
+   ```bash
+   cp .env.example .env
+   ```
 
-#### Windows (PowerShell)
-```powershell
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-```
+3. Open `.env` and set your Gemini API Key:
+   ```env
+   GEMINI_API_KEY=your_actual_gemini_api_key_here
+   MODEL_NAME=gemini-2.0-flash
+   DEBUG=false
+   ENABLE_MEDIA_CACHE=true
+   ```
 
-#### macOS / Linux
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### Step 2.3: Install Dependencies
-Install all required libraries using `pip`:
-```bash
-pip install -r requirements.txt
-```
-*(If no `requirements.txt` is present, install directly: `pip install pandas pillow google-generativeai pydub`)*
+4. Install required Python packages:
+   ```bash
+   pip install python-dotenv pandas pillow google-generativeai
+   ```
 
 ---
 
-## 3. Configuration & Environment Variables
+## 3. Running Automated Tests
 
-### Step 3.1: Create a `.env` File
-Create a `.env` file in the project root directory.
+Run the automated test suite to verify module health, config loading, safety guardrails, scoring engine, and media caching:
 
-```ini
-# .env
-GEMINI_API_KEY=your_gemini_api_key_here
-```
-
-### Step 3.2: Obtain a Gemini API Key
-1. Go to the [Google AI Studio Console](https://aistudio.google.com/).
-2. Log in with your Google account.
-3. Click on **Create API Key**.
-4. Select or create a project, then copy the generated API key.
-5. Paste it in your `.env` file replacing `your_gemini_api_key_here`.
-
-### Step 3.3: Verify Environment Variables
-Verify your environment configuration before running:
-
-#### Windows (PowerShell)
-```powershell
-# Load variables manually from .env if needed
-$env:GEMINI_API_KEY="your_actual_key_here"
-```
-
-#### macOS / Linux
 ```bash
-export GEMINI_API_KEY="your_actual_key_here"
+python code/tests/test_suite.py
+```
+
+Expected output:
+```text
+Ran 8 tests in 0.059s
+OK
 ```
 
 ---
 
-## 4. Running the Code
+## 4. Running the Main Notification Router Pipeline
 
-### Step 4.1: Execute the Pipeline
-Run the main notification router pipeline:
+Execute the full pipeline on `dataset/messages.csv` to generate `dataset/output.csv`:
+
 ```bash
 python code/main.py
 ```
-This script runs the routing logic over every incoming message in `dataset/messages.csv` and outputs a processed predictions file at `dataset/output.csv`.
 
-### Step 4.2: Execute Output Validation
-Run the schema validator to ensure the output matches the required hackathon format:
+For verbose step-by-step debug logging:
 ```bash
-# On Windows PowerShell
-$env:PYTHONIOENCODING="utf-8"; python code/validate_output.py
-
-# On macOS / Linux / Bash
-PYTHONIOENCODING=utf-8 python code/validate_output.py
+python code/main.py --debug
 ```
 
 ---
 
-## 5. Troubleshooting & Debugging
+## 5. Validating Predictions Output
 
-- **Error: 429 Rate Limit Exceeded**:
-  - **Why**: You are using Gemini API free tier limits (which has limits like 15 RPM).
-  - **Mitigation**: The system detects this error and automatically falls back to local Dynamic scoring weights gracefully without stopping the pipeline execution.
-- **Error: UnicodeEncodeError on Output Validation**:
-  - **Why**: PowerShell / Windows Terminal default encoding mismatch.
-  - **Mitigation**: Always run validation with the env variable `$env:PYTHONIOENCODING="utf-8"` set.
-- **Error: Missing Media File Warnings**:
-  - **Why**: Specific image or audio file path missing in `dataset/media/`.
-  - **Mitigation**: System automatically catches file paths and falls back to descriptions stored in `images.csv` or `voice_notes.csv`.
+Run the official schema validator to verify row counts, column alignment, enum correctness, and confidence ranges:
+
+```bash
+python code/validate_output.py
+```
+
+Expected output:
+```text
+Checking 110 rows in dataset/output.csv...
+✅ ALL SCHEMA CHECKS PASSED PERFECTLY!
+```

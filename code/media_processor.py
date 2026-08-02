@@ -1,65 +1,130 @@
 import os
+import json
+import time
 import pandas as pd
 from PIL import Image
 from utils import get_logger, retry_api
+from observability import metrics_collector
+from config import (
+    GEMINI_API_KEY,
+    MODEL_NAME,
+    DEBUG,
+    ENABLE_MEDIA_CACHE,
+    FORCE_REFRESH_CACHE,
+    CACHE_FILE_PATH,
+    IMAGE_ANALYSIS_PROMPT,
+    AUDIO_ANALYSIS_PROMPT,
+    MAX_RETRIES,
+    RETRY_DELAY_SECONDS,
+    RETRY_BACKOFF
+)
+
 import google.generativeai as genai
 
 logger = get_logger("MediaProcessor")
 
-# Set up Gemini client configuration
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 if GEMINI_API_KEY:
     genai.configure(api_key=GEMINI_API_KEY)
 else:
-    logger.warning("GEMINI_API_KEY env variable is not set. MediaProcessor will fall back to CSV-only metadata.")
+    logger.warning("GEMINI_API_KEY environment variable is not set. MediaProcessor will use fallback extraction.")
 
 class MediaProcessor:
     def __init__(self, data_loader):
         self.images_df = data_loader.get("images")
         self.voice_df = data_loader.get("voice_notes")
         self.project_root = data_loader.dataset_path
+        self.cache = self._load_cache()
+
+    def _load_cache(self) -> dict:
+        """Loads cached media processing results from disk."""
+        if ENABLE_MEDIA_CACHE and os.path.exists(CACHE_FILE_PATH):
+            try:
+                with open(CACHE_FILE_PATH, "r", encoding="utf-8") as f:
+                    cache_data = json.load(f)
+                    logger.info(f"Loaded {len(cache_data)} cached media entries from {CACHE_FILE_PATH}")
+                    return cache_data
+            except Exception as e:
+                logger.warning(f"Error loading media cache file: {e}. Initializing empty cache.")
+        return {}
+
+    def _save_cache(self):
+        """Saves media processing results to disk cache."""
+        if not ENABLE_MEDIA_CACHE:
+            return
+        try:
+            os.makedirs(os.path.dirname(CACHE_FILE_PATH), exist_ok=True)
+            with open(CACHE_FILE_PATH, "w", encoding="utf-8") as f:
+                json.dump(self.cache, f, indent=2, ensure_ascii=False)
+            logger.debug("Saved updated media cache to disk.")
+        except Exception as e:
+            logger.warning(f"Error saving media cache: {e}")
 
     def process_media(self, media_type, media_id):
-        """Extracts OCR text, transcripts, or metadata for images and voice notes."""
+        """Extracts OCR text, receipts, notice board info, or speech transcripts for media items."""
         if pd.isna(media_id) or not media_id or pd.isna(media_type):
-            return {"extracted_text": "", "media_details": {}}
+            return {"extracted_text": "", "media_details": {}, "source": "none"}
 
         extracted_text = ""
         details = {}
+        source = "none"
+        cache_key = f"{media_type}:{media_id}"
 
+        # 1. Check disk cache first unless force refresh is true
+        if ENABLE_MEDIA_CACHE and not FORCE_REFRESH_CACHE and cache_key in self.cache:
+            metrics_collector.record_cache_hit()
+            cached_item = self.cache[cache_key]
+            if media_type == "image":
+                metrics_collector.record_ocr()
+            elif media_type == "voice":
+                metrics_collector.record_voice_transcription()
+
+            if DEBUG:
+                logger.info(f"[CACHE HIT] Key '{cache_key}': {cached_item['extracted_text'][:100]}...")
+
+            return {
+                "extracted_text": cached_item["extracted_text"],
+                "media_details": cached_item.get("media_details", {}),
+                "source": "cache"
+            }
+
+        metrics_collector.record_cache_miss()
+
+        # 2. Extract metadata & physical file path
         if media_type == "image" and self.images_df is not None and not self.images_df.empty:
             match = self.images_df[self.images_df["image_id"] == media_id]
             if not match.empty:
                 details = match.iloc[0].to_dict()
                 file_path = os.path.join(self.project_root, details.get("file_path", ""))
                 
-                # Check for CSV metadata fallback
+                # Metadata columns check
                 csv_text = (
                     str(details.get("ocr_text", "")) or 
                     str(details.get("caption", "")) or 
                     str(details.get("description", ""))
                 ).strip()
 
-                # Attempt LLM Multimodal processing
+                # Execute Real Gemini Multimodal Analysis if API key and file exist
                 if GEMINI_API_KEY and os.path.exists(file_path):
-                    from config import DEBUG_GEMINI
-                    if DEBUG_GEMINI:
-                        print(f"[DEBUG GEMINI] Processing Image: {file_path}")
-                        llm_ocr = self._analyze_image_llm(file_path)
-                        print(f"[DEBUG GEMINI] Image Result: {llm_ocr[:200] if llm_ocr else None}")
-                        extracted_text = llm_ocr if llm_ocr else csv_text
-                    else:
-                        try:
-                            llm_ocr = self._analyze_image_llm(file_path)
-                            if llm_ocr:
-                                extracted_text = llm_ocr
-                            else:
-                                extracted_text = csv_text
-                        except Exception as e:
-                            logger.warning(f"Error performing LLM image analysis: {e}. Falling back to CSV metadata.")
+                    metrics_collector.record_ocr()
+                    try:
+                        extracted_text = self._analyze_image_llm(file_path)
+                        source = "gemini_vision"
+                        if not extracted_text:
+                            logger.warning(f"Gemini Vision returned empty text for {file_path}. Using fallback CSV metadata.")
+                            metrics_collector.record_fallback()
                             extracted_text = csv_text
+                            source = "fallback_csv"
+                    except Exception as e:
+                        logger.warning(f"Gemini Vision failed for {file_path} ({e}). Using fallback CSV metadata.")
+                        metrics_collector.record_fallback()
+                        extracted_text = csv_text
+                        source = "fallback_csv"
                 else:
+                    if not os.path.exists(file_path):
+                        logger.error(f"Image file missing on disk: {file_path}")
+                    metrics_collector.record_fallback()
                     extracted_text = csv_text
+                    source = "fallback_csv"
 
         elif media_type == "voice" and self.voice_df is not None and not self.voice_df.empty:
             match = self.voice_df[self.voice_df["voice_note_id"] == media_id]
@@ -67,87 +132,101 @@ class MediaProcessor:
                 details = match.iloc[0].to_dict()
                 file_path = os.path.join(self.project_root, details.get("file_path", ""))
                 
-                # Check for CSV metadata fallback
                 csv_text = (
                     str(details.get("transcript", "")) or 
                     str(details.get("audio_text", ""))
                 ).strip()
 
                 if GEMINI_API_KEY and os.path.exists(file_path):
-                    from config import DEBUG_GEMINI
-                    if DEBUG_GEMINI:
-                        print(f"[DEBUG GEMINI] Processing Audio: {file_path}")
-                        llm_transcript = self._analyze_audio_llm(file_path)
-                        print(f"[DEBUG GEMINI] Audio Result: {llm_transcript[:200] if llm_transcript else None}")
-                        extracted_text = llm_transcript if llm_transcript else csv_text
-                    else:
-                        try:
-                            llm_transcript = self._analyze_audio_llm(file_path)
-                            if llm_transcript:
-                                extracted_text = llm_transcript
-                            else:
-                                extracted_text = csv_text
-                        except Exception as e:
-                            logger.warning(f"Error performing LLM audio analysis: {e}. Falling back to CSV metadata.")
+                    metrics_collector.record_voice_transcription()
+                    try:
+                        extracted_text = self._analyze_audio_llm(file_path)
+                        source = "gemini_audio"
+                        if not extracted_text:
+                            logger.warning(f"Gemini Audio returned empty text for {file_path}. Using fallback CSV metadata.")
+                            metrics_collector.record_fallback()
                             extracted_text = csv_text
+                            source = "fallback_csv"
+                    except Exception as e:
+                        logger.warning(f"Gemini Audio failed for {file_path} ({e}). Using fallback CSV metadata.")
+                        metrics_collector.record_fallback()
+                        extracted_text = csv_text
+                        source = "fallback_csv"
                 else:
+                    if not os.path.exists(file_path):
+                        logger.error(f"Voice note file missing on disk: {file_path}")
+                    metrics_collector.record_fallback()
                     extracted_text = csv_text
+                    source = "fallback_csv"
+        else:
+            source = "unknown"
+
+        result_text = (extracted_text or "").strip()
+
+        # Update disk cache
+        self.cache[cache_key] = {
+            "extracted_text": result_text,
+            "media_details": details,
+            "timestamp": time.time()
+        }
+        self._save_cache()
 
         return {
-            "extracted_text": extracted_text.strip(),
-            "media_details": details
+            "extracted_text": result_text,
+            "media_details": details,
+            "source": source
         }
 
-    @retry_api(max_retries=3, delay=1.0)
-    def _analyze_image_llm(self, image_path):
-        """Use Gemini model to extract text, notice boards, coupons, or receipts from image."""
+    @retry_api(max_retries=MAX_RETRIES, delay=RETRY_DELAY_SECONDS, backoff=RETRY_BACKOFF)
+    def _analyze_image_llm(self, image_path: str) -> str:
+        """Call Gemini Vision model to extract details, posters, coupons, receipts, and screenshots."""
+        start_time = time.time()
+        logger.info(f"Gemini Request [IMAGE]: {image_path}")
         try:
-            logger.info(f"Analyzing image using Gemini: {image_path}")
             img = Image.open(image_path)
-            from config import MODEL_NAME
             model = genai.GenerativeModel(MODEL_NAME)
+            response = model.generate_content([IMAGE_ANALYSIS_PROMPT, img])
+            latency = round(time.time() - start_time, 3)
             
-            prompt = (
-                "Extract all text, notices, dates, receipts, prices, event names, and coupon codes "
-                "from this image. Be extremely accurate. If it is a QR code or payment poster, describe "
-                "the text and details clearly. Output only the extracted details."
-            )
-            response = model.generate_content([prompt, img])
-            return response.text
+            res_text = response.text.strip() if response and response.text else ""
+            metrics_collector.record_api_call(success=True, latency=latency)
+            
+            logger.info(f"Gemini Response [IMAGE SUCCESS] ({latency}s): {res_text[:150]}...")
+            return res_text
         except Exception as e:
-            logger.error(f"Error performing LLM image analysis: {e}")
-            return None
+            latency = round(time.time() - start_time, 3)
+            metrics_collector.record_api_call(success=False, latency=latency)
+            logger.error(f"Gemini Response [IMAGE ERROR] ({latency}s): {e}")
+            raise e
 
-    @retry_api(max_retries=3, delay=1.0)
-    def _analyze_audio_llm(self, audio_path):
-        """Use Gemini model to transcribe and identify urgency/tone from audio files."""
+    @retry_api(max_retries=MAX_RETRIES, delay=RETRY_DELAY_SECONDS, backoff=RETRY_BACKOFF)
+    def _analyze_audio_llm(self, audio_path: str) -> str:
+        """Call Gemini model to transcribe voice note and extract urgency/tone."""
+        start_time = time.time()
+        logger.info(f"Gemini Request [AUDIO]: {audio_path}")
         try:
-            logger.info(f"Analyzing voice note using Gemini: {audio_path}")
-            
-            # Read the audio file bytes and upload using API
             with open(audio_path, 'rb') as f:
                 audio_bytes = f.read()
 
-            from config import MODEL_NAME
             model = genai.GenerativeModel(MODEL_NAME)
             
-            prompt = (
-                "Transcribe this voice note completely. If there is urgency, payment requests, "
-                "or panic in the tone/background, summarize the tone or urgency clearly at the end. "
-                "Transcribe the actual speech precisely."
-            )
-            
-            # Format audio upload payload
             response = model.generate_content(
                 contents=[
-                    prompt,
+                    AUDIO_ANALYSIS_PROMPT,
                     {
                         "mime_type": "audio/mp3",
                         "data": audio_bytes
                     }
                 ]
             )
-            return response.text
+            latency = round(time.time() - start_time, 3)
+            res_text = response.text.strip() if response and response.text else ""
+            metrics_collector.record_api_call(success=True, latency=latency)
+            
+            logger.info(f"Gemini Response [AUDIO SUCCESS] ({latency}s): {res_text[:150]}...")
+            return res_text
         except Exception as e:
-            logger.error(f"Error performing LLM audio analysis: {e}")
-            return None
+            latency = round(time.time() - start_time, 3)
+            metrics_collector.record_api_call(success=False, latency=latency)
+            logger.error(f"Gemini Response [AUDIO ERROR] ({latency}s): {e}")
+            raise e

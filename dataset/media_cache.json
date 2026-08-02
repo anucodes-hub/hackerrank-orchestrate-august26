@@ -1,0 +1,159 @@
+{
+  "image:img_non_existent": {
+    "extracted_text": "",
+    "media_details": {},
+    "timestamp": 1785660835.3868835
+  },
+  "image:img_008": {
+    "extracted_text": "",
+    "media_details": {
+      "image_id": "img_008",
+      "file_path": "media/images/img_008.jpg"
+    },
+    "timestamp": 1785661550.7273533
+  },
+  "image:img_012": {
+    "extracted_text": "",
+    "media_details": {
+      "image_id": "img_012",
+      "file_path": "media/images/img_012.jpg"
+    },
+    "timestamp": 1785661553.385527
+  },
+  "image:img_010": {
+    "extracted_text": "",
+    "media_details": {
+      "image_id": "img_010",
+      "file_path": "media/images/img_010.jpg"
+    },
+    "timestamp": 1785661555.4778943
+  },
+  "voice:vn_009": {
+    "extracted_text": "",
+    "media_details": {
+      "voice_note_id": "vn_009",
+      "file_path": "media/audio/vn_009.mp3"
+    },
+    "timestamp": 1785661556.29381
+  },
+  "voice:vn_012": {
+    "extracted_text": "",
+    "media_details": {
+      "voice_note_id": "vn_012",
+      "file_path": "media/audio/vn_012.mp3"
+    },
+    "timestamp": 1785661560.6026168
+  },
+  "image:img_003": {
+    "extracted_text": "",
+    "media_details": {
+      "image_id": "img_003",
+      "file_path": "media/images/img_003.jpg"
+    },
+    "timestamp": 1785661561.3202999
+  },
+  "voice:vn_006": {
+    "extracted_text": "",
+    "media_details": {
+      "voice_note_id": "vn_006",
+      "file_path": "media/audio/vn_006.mp3"
+    },
+    "timestamp": 1785661562.343594
+  },
+  "voice:vn_008": {
+    "extracted_text": "",
+    "media_details": {
+      "voice_note_id": "vn_008",
+      "file_path": "media/audio/vn_008.mp3"
+    },
+    "timestamp": 1785661565.6222072
+  },
+  "image:img_002": {
+    "extracted_text": "",
+    "media_details": {
+      "image_id": "img_002",
+      "file_path": "media/images/img_002.jpg"
+    },
+    "timestamp": 1785661566.8486488
+  },
+  "image:img_004": {
+    "extracted_text": "",
+    "media_details": {
+      "image_id": "img_004",
+      "file_path": "media/images/img_004.jpg"
+    },
+    "timestamp": 1785661567.6731308
+  },
+  "voice:vn_014": {
+    "extracted_text": "",
+    "media_details": {
+      "voice_note_id": "vn_014",
+      "file_path": "media/audio/vn_014.mp3"
+    },
+    "timestamp": 1785661568.487613
+  },
+  "voice:vn_005": {
+    "extracted_text": "",
+    "media_details": {
+      "voice_note_id": "vn_005",
+      "file_path": "media/audio/vn_005.mp3"
+    },
+    "timestamp": 1785661569.7161188
+  },
+  "image:img_007": {
+    "extracted_text": "",
+    "media_details": {
+      "image_id": "img_007",
+      "file_path": "media/images/img_007.jpg"
+    },
+    "timestamp": 1785661570.6386724
+  },
+  "image:img_024": {
+    "extracted_text": "",
+    "media_details": {
+      "image_id": "img_024",
+      "file_path": "media/images/img_024.jpg"
+    },
+    "timestamp": 1785661571.8665454
+  },
+  "image:img_025": {
+    "extracted_text": "",
+    "media_details": {
+      "image_id": "img_025",
+      "file_path": "media/images/img_025.jpg"
+    },
+    "timestamp": 1785661575.0407
+  },
+  "image:img_023": {
+    "extracted_text": "",
+    "media_details": {
+      "image_id": "img_023",
+      "file_path": "media/images/img_023.jpg"
+    },
+    "timestamp": 1785661576.690601
+  },
+  "image:img_011": {
+    "extracted_text": "",
+    "media_details": {
+      "image_id": "img_011",
+      "file_path": "media/images/img_011.jpg"
+    },
+    "timestamp": 1785661577.6113238
+  },
+  "voice:vn_004": {
+    "extracted_text": "",
+    "media_details": {
+      "voice_note_id": "vn_004",
+      "file_path": "media/audio/vn_004.mp3"
+    },
+    "timestamp": 1785661578.1140766
+  },
+  "voice:vn_007": {
+    "extracted_text": "",
+    "media_details": {
+      "voice_note_id": "vn_007",
+      "file_path": "media/audio/vn_007.mp3"
+    },
+    "timestamp": 1785661578.933298
+  }
+}
